@@ -1,0 +1,13 @@
+@ClientDependent: false
+@EndUserText.label: 'Find the Actual Geometries'
+@AccessControl.authorizationCheck: #NOT_REQUIRED
+define table function zget_actualgeometries_tf
+with parameters
+   @EndUserText.label: 'Where clause'   
+    p_where : abap.char(1333)
+returns {
+  ACTUALGEOMETRYID : abap.int8;
+  ACTUALBLOCKID    : abap.int8;
+  GPSQUALITY       : abap.string;
+}
+implemented by method ZCL_GIS_AMDP_BASE=>GET_ACTUALGEOMETRIES;

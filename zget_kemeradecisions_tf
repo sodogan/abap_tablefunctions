@@ -1,0 +1,14 @@
+@ClientDependent: false
+@EndUserText.label: 'Find the Actual Geometries'
+@AccessControl.authorizationCheck: #NOT_REQUIRED
+define table function zget_kemeradecisions_tf
+with parameters
+   @EndUserText.label: 'Where clause'   
+    p_where : abap.char(1333)
+returns {
+   casenumber      : zcasenumber;
+   casedate        : abap.string;
+   decisionnumber  : abap.string;
+   decisiondate    : abap.string;
+}
+implemented by method zcl_gis_amdp_id1174=>get_kemera_decisions;

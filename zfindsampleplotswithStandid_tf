@@ -1,0 +1,18 @@
+@ClientDependent: false
+@AccessControl.authorizationCheck: #NOT_REQUIRED
+@EndUserText.label: 'table function for silviculture geom'
+define table function zfindsampleplotswithStandid_tf
+with parameters
+  @EndUserText.label: 'Stand ID'
+    p_standid       : abap.int4,
+   @EndUserText.label: 'Is it Harvesting or Not'   
+    p_is_harvesting : flag
+returns
+{
+  stand_number       : abap.char(10); 
+  geoloc_mj        : geom_ewkb;
+  geoloc_mj_string : abap.string(0);
+
+}
+implemented by method
+  zcl_gis_amdp_base=>findsampleplotswithStandid_tf;

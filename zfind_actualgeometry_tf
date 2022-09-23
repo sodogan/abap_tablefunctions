@@ -1,0 +1,11 @@
+@ClientDependent: false
+@EndUserText.label: 'Find the Actual Geometries'
+@AccessControl.authorizationCheck: #NOT_REQUIRED
+define table function zfind_actualgeometry_tf
+with parameters P_ACTUALGEOMETRYID : abap.int8 
+returns {
+  ACTUALGEOMETRYID : abap.int8;
+  ACTUALBLOCKID    : abap.int8;
+  GEOLOC           : geom_ewkb;
+}
+implemented by method ZCL_GIS_AMDP_BASE=>find_actualgeometry;

@@ -1,0 +1,21 @@
+/*
+*  Inserts or updates are not supported with table functions
+*  Only possibility is to use the AMDP methods
+*/
+@AccessControl.authorizationCheck: #NOT_REQUIRED
+@EndUserText.label: 'table function'
+define table function Z_INSERTCARRIER_TF
+with parameters 
+@Environment.systemField: #CLIENT
+p_mandt : abap.clnt,
+@EndUserText.label: 'Plane Name Like'
+@EndUserText.quickInfo: 'Name Like'
+p_carrid : s_carr_id
+returns {
+  mandt : abap.clnt;
+  CARRID : s_carr_id;
+  CARRNAME : s_carrname;
+  CURRCODE : s_currcode ;
+  URL: s_carrurl;
+}
+implemented by method zcl_amdp_update_flights=>TEST_INSERT_SINGLE_TF;

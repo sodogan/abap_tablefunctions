@@ -1,0 +1,19 @@
+@AccessControl.authorizationCheck: #NOT_REQUIRED
+@EndUserText.label: 'table function'
+define table function z_findcarrier_tf
+with parameters 
+@Environment.systemField: #CLIENT
+p_mandt : abap.clnt,
+@EndUserText.label: 'Plane Name Like'
+@EndUserText.quickInfo: 'Name Like'
+p_planetype : s_planetye
+returns {
+  mandt : abap.clnt;
+  CARRID : s_carr_id;
+  CONNID : s_conn_id;
+  FLDATE : s_date;
+  PRICE  : s_price;
+  PLANETYPE: s_planetye;
+  
+}
+implemented by method zcl_amdp_get_flights=>find_planetype;
